@@ -9,6 +9,7 @@ app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/api/movies', require('./api/movies'));
+app.use('/api/info', require('./api/info'));
 
 // Connect to Mongo on start
 db.connect(url, function (err) {
