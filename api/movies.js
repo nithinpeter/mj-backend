@@ -30,8 +30,21 @@ router.post('/', function (req, res) {
       return;
     }
   });
-
 });
+
+router.get('/:movieId', function (req, res) {
+  var cursor = db.get().collection('movies').findOne({
+    _id: parseInt(req.params.movieId)
+  }, function (err, result) {
+    if(err) {
+      console.log('An error occurred while fetching.')
+      return;
+    }
+    res.json(result);
+  });
+  
+});
+
 
 
 module.exports = router;
