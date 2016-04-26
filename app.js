@@ -7,7 +7,7 @@ var url;
 if(process.env.NODE_ENV == 'production')
     url = 'mongodb://' + process.env.DB_USER_NAME + ':'+ process.env.DB_PASSWORD + '@ds011251.mlab.com:11251/mallujunkies';
 else
-    url = 'mongodb://localhost:27017/movies';
+    url = 'mongodb://localhost:27017/mallujunkies';
 
 app.all('*', function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
@@ -21,6 +21,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/api/movies', require('./api/movies'));
 app.use('/api/info', require('./api/info'));
+app.use('/api/session', require('./api/session'));
 
 // Connect to Mongo on start
 db.connect(url, function (err) {

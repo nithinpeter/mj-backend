@@ -37,8 +37,8 @@ router.get('/:movieId', function (req, res) {
     _id: parseInt(req.params.movieId)
   }, function (err, result) {
     if(err) {
-      console.log('An error occurred while fetching.')
-      return;
+      return res.status('500').send('An error occurred while fetching.');
+      
     }
     res.json(result);
   });
