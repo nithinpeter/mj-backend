@@ -7,6 +7,6 @@ if(process.env.NODE_ENV == 'production')
 else 
     secret = "super-secret"
 
-function createToken(user) {
+export function createToken(user) {
   return jwt.sign(_.omit(user, 'password'), secret, { expiresInMinutes: 60*5 });
 }
