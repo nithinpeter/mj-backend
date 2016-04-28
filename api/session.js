@@ -5,7 +5,7 @@ var express = require('express');
 var router = express.Router();
 
 
-router.post('/', function(req, res) {
+router.post('/login', function(req, res) {
   if (!req.body.username || !req.body.password) {
     return res.status(400).send("You must send the username and the password");
   }
